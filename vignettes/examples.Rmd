@@ -1,0 +1,67 @@
+---
+title: "Usage Examples"
+author: "Hannes Riebl"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{examples}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(bamlss)
+library(bamlssAPI)
+```
+
+This is the first example from `?bamlss`:
+
+```{r example1, dpi=150, fig.width=7, fig.height=35, out.width="100%"}
+d <- GAMart()
+f <- num ~ s(x1) + s(x2) + s(x3) + te(lon, lat)
+b <- bamlss(f, data = d, sampler = FALSE)
+
+b <- apify(b, propose = "iwlsC_gp")
+
+nsamp <- 500
+
+samples <- matrix(
+  data     = NA_real_,
+  nrow     = nsamp,
+  ncol     = length(parameters(b, "mu", "s(x1)")),
+  dimnames = list(NULL, names(parameters(b, "mu", "s(x1)")))
+)
+
+for (i in 1:nsamp) {
+  prop <- propose(b, "mu", "s(x1)")
+  if (log(runif(1)) <= prop$alpha) b <- accept(b, "mu", "s(x1)", prop)
+  samples[i,] <- parameters(b, "mu", "s(x1)")
+}
+
+par(mfrow = c(ncol(samples), 2))
+plot(as.mcmc(samples), auto.layout = FALSE)
+par(mfrow = c(1, 1))
+```
+
+Some more API examples:
+
+```{r example2}
+predictors(b)
+smooths(b, predictor = "mu")
+parameters(b, "mu", "s(x1)")
+b <- update_logpost(b)
+logpost(b)
+b <- set_parameters(b, "mu", "s(x1)", parameters(b, "mu", "s(x1)") + 0.01)
+outdated(fx(b, "mu", "s(x1)"))
+outdated(eta(b, "mu"))
+outdated(logpost(b))
+b <- update_logpost(b)
+logpost(b)
+```

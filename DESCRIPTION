@@ -1,0 +1,16 @@
+Package: bamlssAPI
+Title: A Developer-Friendly API for the bamlss Package
+Version: 0.0.0.9000
+Authors@R: as.person("Hannes Riebl <hriebl@uni-goettingen.de> [aut, cre]")
+Description: A convenient API which simplifies the implementation of new
+    samplers for bamlss models. bamlss is a package for working with Bayesian
+    distributional regression models (also known as GAMLSS).
+Depends: R (>= 3.2.3)
+Imports: bamlss (>= 1.0-2)
+Suggests: testthat (>= 2.1.0), knitr, rmarkdown
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr

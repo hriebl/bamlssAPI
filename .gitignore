@@ -3,6 +3,5 @@
 .RData
 .Ruserdata
 inst/doc
-doc/*
-!doc/*.html
+doc
 Meta

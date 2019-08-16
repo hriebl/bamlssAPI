@@ -461,3 +461,71 @@ accept <- function(model, predictor, smooth, proposal) {
 
   return(model)
 }
+
+
+# grad_loglik, grad_logprior & grad_logpost -----------------------------------
+
+#' @export
+
+grad_loglik <- function(model, predictor, smooth) {
+  theta <- lapply(predictors(model), function(predictor) {
+    theta(update_theta(model, predictor), predictor)
+  })
+
+  names(theta) <- predictors(model)
+
+  score <- model$family$score[[predictor]](response(model), theta)
+
+  smt <- smt_obj(model, predictor, smooth)
+  X <- smt$X
+
+  if (!is.null(smt$binning)) {
+    X <- X[smt$binning$match.index, , drop = FALSE]
+  }
+
+  grad <- drop(crossprod(X, score))
+  tau2 <- parameters(model, predictor, smooth, type = "tau2")
+  grad <- c(grad, rep(0, length(tau2)))
+
+  return(grad)
+}
+
+#' @export
+
+grad_logprior <- function(model, predictor, smooth) {
+  smt <- smt_obj(model, predictor, smooth)
+
+  beta <- parameters(model, predictor, smooth, type = "b")
+  tau2 <- parameters(model, predictor, smooth, type = "tau2")
+
+  gb <- rep(0, length(beta))
+  gt <- rep(0, length(tau2))
+
+  for (i in seq_along(tau2)) {
+    S <- smt$S[[i]]
+
+    if (is.function(S)) {
+      S <- S(c(beta, tau2, smt$fixed.hyper))
+    }
+
+    gb <- gb - S %*% beta / tau2[i]
+
+    tmp <- -smt$rank[i] / (2 * tau2[i])
+    tmp <- tmp + sum(beta * (S %*% beta)) / (2 * tau2[i]^2)
+    tmp <- tmp - (smt$a + 1) / tau2[i] + smt$b / tau2[i]^2
+
+    gt[i] <- gt
+  }
+
+  grad <- c(gb, gt)
+
+  return(grad)
+}
+
+#' @export
+
+grad_logpost <- function(model, predictor, smooth) {
+  grad <- grad_loglik(model, predictor, smooth)
+  grad <- grad + grad_logprior(model, predictor, smooth)
+  return(grad)
+}

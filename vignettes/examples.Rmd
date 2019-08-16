@@ -66,4 +66,6 @@ outdated(eta(b, "mu"))
 outdated(logpost(b))
 b <- update_logpost(b)
 logpost(b)
+grad_logpost(b, "mu", "s(x1)")
+hess_logpost(b, "mu", "s(x1)")
 ```

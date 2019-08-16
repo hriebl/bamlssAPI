@@ -153,7 +153,31 @@
 <a class="sourceLine" id="cb4-23" data-line-number="23"><span class="kw">logpost</span>(b)</a>
 <a class="sourceLine" id="cb4-24" data-line-number="24"><span class="co">#&gt; [1] 148.6532</span></a>
 <a class="sourceLine" id="cb4-25" data-line-number="25"><span class="co">#&gt; attr(,"outdated")</span></a>
-<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">#&gt; [1] FALSE</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27"><span class="kw">grad_logpost</span>(b, <span class="st">"mu"</span>, <span class="st">"s(x1)"</span>)</a>
+<a class="sourceLine" id="cb4-28" data-line-number="28"><span class="co">#&gt;  [1]  -792.38793    24.85595  -858.02182   -70.70957  -987.67488</span></a>
+<a class="sourceLine" id="cb4-29" data-line-number="29"><span class="co">#&gt;  [6]  -320.01740 -1148.07900   108.11310  -887.12444     0.00000</span></a>
+<a class="sourceLine" id="cb4-30" data-line-number="30"><span class="kw">hess_logpost</span>(b, <span class="st">"mu"</span>, <span class="st">"s(x1)"</span>)</a>
+<a class="sourceLine" id="cb4-31" data-line-number="31"><span class="co">#&gt;             [,1]       [,2]       [,3]      [,4]       [,5]      [,6]</span></a>
+<a class="sourceLine" id="cb4-32" data-line-number="32"><span class="co">#&gt;  [1,]  8293524.6  -878637.0  7110886.1  417813.1  7870228.9 1217744.2</span></a>
+<a class="sourceLine" id="cb4-33" data-line-number="33"><span class="co">#&gt;  [2,]  -878637.0  1200586.4  -719871.2 -726366.3  -963592.2 -836543.3</span></a>
+<a class="sourceLine" id="cb4-34" data-line-number="34"><span class="co">#&gt;  [3,]  7110886.1  -719871.2  7157742.8  281308.0  7535195.9 1044982.8</span></a>
+<a class="sourceLine" id="cb4-35" data-line-number="35"><span class="co">#&gt;  [4,]   417813.1  -726366.3   281308.0  862977.1   473692.0  743767.4</span></a>
+<a class="sourceLine" id="cb4-36" data-line-number="36"><span class="co">#&gt;  [5,]  7870228.9  -963592.2  7535195.9  473692.0  8552648.5 1322653.2</span></a>
+<a class="sourceLine" id="cb4-37" data-line-number="37"><span class="co">#&gt;  [6,]  1217744.2  -836543.3  1044982.8  743767.4  1322653.2 1042642.1</span></a>
+<a class="sourceLine" id="cb4-38" data-line-number="38"><span class="co">#&gt;  [7,]  8098075.7 -1068269.5  7739834.2  562245.6  8592377.2 1437519.8</span></a>
+<a class="sourceLine" id="cb4-39" data-line-number="39"><span class="co">#&gt;  [8,] -1019310.1 -1185213.0 -1170258.5 1056270.0 -1000146.3  958814.7</span></a>
+<a class="sourceLine" id="cb4-40" data-line-number="40"><span class="co">#&gt;  [9,]  8538712.8  -923763.2  7907571.4  407635.0  8718768.2 1292818.9</span></a>
+<a class="sourceLine" id="cb4-41" data-line-number="41"><span class="co">#&gt;             [,7]       [,8]       [,9]</span></a>
+<a class="sourceLine" id="cb4-42" data-line-number="42"><span class="co">#&gt;  [1,]  8098075.7 -1019310.1  8538712.8</span></a>
+<a class="sourceLine" id="cb4-43" data-line-number="43"><span class="co">#&gt;  [2,] -1068269.5 -1185213.0  -923763.2</span></a>
+<a class="sourceLine" id="cb4-44" data-line-number="44"><span class="co">#&gt;  [3,]  7739834.2 -1170258.5  7907571.4</span></a>
+<a class="sourceLine" id="cb4-45" data-line-number="45"><span class="co">#&gt;  [4,]   562245.6  1056270.0   407635.0</span></a>
+<a class="sourceLine" id="cb4-46" data-line-number="46"><span class="co">#&gt;  [5,]  8592377.2 -1000146.3  8718768.2</span></a>
+<a class="sourceLine" id="cb4-47" data-line-number="47"><span class="co">#&gt;  [6,]  1437519.8   958814.7  1292818.9</span></a>
+<a class="sourceLine" id="cb4-48" data-line-number="48"><span class="co">#&gt;  [7,]  9009492.9  -901552.5  8960816.3</span></a>
+<a class="sourceLine" id="cb4-49" data-line-number="49"><span class="co">#&gt;  [8,]  -901552.5  1964226.1 -1181872.5</span></a>
+<a class="sourceLine" id="cb4-50" data-line-number="50"><span class="co">#&gt;  [9,]  8960816.3 -1181872.5  9223125.4</span></a></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

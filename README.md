@@ -18,4 +18,5 @@ devtools::install_github("hriebl/bamlssAPI")
 
 ## Examples
 
-For some usage examples, see the package vignettes/articles.
+For some usage examples, see the
+[package vignette](https://hriebl.github.io/bamlssAPI/articles/examples.html).

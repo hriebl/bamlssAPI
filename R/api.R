@@ -531,3 +531,59 @@ grad_logpost <- function(model, predictor, smooth) {
   grad <- grad + grad_logprior(model, predictor, smooth)
   return(grad)
 }
+
+
+# hess_loglik, hess_logprior & hess_logpost -----------------------------------
+
+#' @export
+
+hess_loglik <- function(model, predictor, smooth) {
+  theta <- lapply(predictors(model), function(predictor) {
+    theta(update_theta(model, predictor), predictor)
+  })
+
+  names(theta) <- predictors(model)
+
+  hess <- model$family$hess[[predictor]](response(model), theta)
+
+  smt <- smt_obj(model, predictor, smooth)
+  X <- smt$X
+
+  if (!is.null(smt$binning)) {
+    X <- X[smt$binning$match.index, , drop = FALSE]
+  }
+
+  XX <- crossprod(X)
+  hess <- lapply(hess, function(hess) hess * XX)
+  hess <- Reduce("+", hess)
+
+  return(hess)
+}
+
+#' @export
+
+hess_logprior <- function(model, predictor, smooth) {
+  smt <- smt_obj(model, predictor, smooth)
+  tau2 <- parameters(model, predictor, smooth, type = "tau2")
+  hess <- 0
+
+  for (i in seq_along(tau2)) {
+    S <- smt$S[[i]]
+
+    if (is.function(S)) {
+      S <- S(c(beta, tau2, smt$fixed.hyper))
+    }
+
+    hess <- hess + S / tau2[i]
+  }
+
+  return(hess)
+}
+
+#' @export
+
+hess_logpost <- function(model, predictor, smooth) {
+  hess <- hess_loglik(model, predictor, smooth)
+  hess <- hess + hess_logprior(model, predictor, smooth)
+  return(hess)
+}

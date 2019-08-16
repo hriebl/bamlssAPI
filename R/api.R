@@ -10,6 +10,7 @@
 #' @return The API-enabled model.
 #'
 #' @examples
+#' library(bamlss)
 #' y <- rnorm(10)
 #' b <- bamlss(y ~ 1)
 #' b <- apify(b)
@@ -17,7 +18,7 @@
 #' @export
 
 apify <- function(model, propose = "iwlsC_gp") {
-  model$x <- bamlss.engine.setup(model$x, propose = propose)
+  model$x <- bamlss::bamlss.engine.setup(model$x, propose = propose)
 
   if ("parameters" %in% names(model)) {
     par <- bamlss::parameters(model)
@@ -96,6 +97,7 @@ apify <- function(model, propose = "iwlsC_gp") {
 #'   the names of the smooths.
 #'
 #' @examples
+#' library(bamlss)
 #' y <- rnorm(10)
 #' b <- bamlss(y ~ 1)
 #' b <- apify(b)

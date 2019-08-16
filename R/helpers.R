@@ -80,9 +80,10 @@ response <- function(model) {
 #' @export
 
 logLik.apified.bamlss <- function(object, ...) {
-  return(loglik(model))
+  return(loglik(object))
 }
 
+#' @importFrom stats nobs
 #' @export
 
 nobs.bamlss <- function(object, ...) {

@@ -20,6 +20,7 @@ This function enables the API for the given bamlss model. Afterwards, you
 can use the functions from the bamlssAPI package with the model.
 }
 \examples{
+library(bamlss)
 y <- rnorm(10)
 b <- bamlss(y ~ 1)
 b <- apify(b)

@@ -23,6 +23,7 @@ given bamlss model, while the \code{smooths} function returns the names of the
 smooths in one predictor.
 }
 \examples{
+library(bamlss)
 y <- rnorm(10)
 b <- bamlss(y ~ 1)
 b <- apify(b)

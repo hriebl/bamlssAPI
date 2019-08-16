@@ -144,8 +144,37 @@ the names of the smooths.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>10</span>)
-<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'>bamlss</span>(<span class='no'>y</span> ~ <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in bamlss(y ~ 1): could not find function "bamlss"</span></div><div class='input'><span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='apify.html'>apify</a></span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; <span class='error'>Error in bamlss.engine.setup(model$x, propose = propose): could not find function "bamlss.engine.setup"</span></div><div class='input'><span class='fu'>predictors</span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; <span class='error'>Error in predictors(b): object 'b' not found</span></div><div class='input'><span class='fu'>smooths</span>(<span class='no'>b</span>, <span class='kw'>predictor</span> <span class='kw'>=</span> <span class='fu'>predictors</span>(<span class='no'>b</span>)[<span class='fl'>1</span>])</div><div class='output co'>#&gt; <span class='error'>Error in pred_obj(model, predictor): object 'b' not found</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>bamlss</span>)
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>10</span>)
+<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/bamlss/topics/bamlss'>bamlss</a></span>(<span class='no'>y</span> ~ <span class='fl'>1</span>)</div><div class='output co'>#&gt; AICc  24.1352 logPost -24.8638 logLik  -9.2105 edf 2.0000 eps 0.9902 iteration   1
+#&gt; AICc  24.1351 logPost -24.8638 logLik  -9.2104 edf 2.0000 eps 0.0026 iteration   2
+#&gt; AICc  24.1351 logPost -24.8638 logLik  -9.2104 edf 2.0000 eps 0.0000 iteration   3
+#&gt; AICc  24.1351 logPost -24.8638 logLik  -9.2104 edf 2.0000 eps 0.0000 iteration   3
+#&gt; elapsed time:  0.01sec
+#&gt; Starting the sampler...
+#&gt; 
+#&gt; |                    |   0%  1.31sec
+#&gt; |*                   |   5%  1.39sec  0.07sec
+#&gt; |**                  |  10%  1.20sec  0.13sec
+#&gt; |***                 |  15%  1.22sec  0.22sec
+#&gt; |****                |  20%  1.08sec  0.27sec
+#&gt; |*****               |  25%  0.99sec  0.33sec
+#&gt; |******              |  30%  0.91sec  0.39sec
+#&gt; |*******             |  35%  0.85sec  0.46sec
+#&gt; |********            |  40%  0.77sec  0.51sec
+#&gt; |*********           |  45%  0.71sec  0.58sec
+#&gt; |**********          |  50%  0.63sec  0.63sec
+#&gt; |***********         |  55%  0.56sec  0.69sec
+#&gt; |************        |  60%  0.50sec  0.75sec
+#&gt; |*************       |  65%  0.43sec  0.80sec
+#&gt; |**************      |  70%  0.37sec  0.87sec
+#&gt; |***************     |  75%  0.31sec  0.93sec
+#&gt; |****************    |  80%  0.25sec  1.01sec
+#&gt; |*****************   |  85%  0.19sec  1.08sec
+#&gt; |******************  |  90%  0.13sec  1.13sec
+#&gt; |******************* |  95%  0.06sec  1.19sec
+#&gt; |********************| 100%  0.00sec  1.25sec</div><div class='input'><span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='apify.html'>apify</a></span>(<span class='no'>b</span>)
+<span class='fu'>predictors</span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; [1] "mu"    "sigma"</div><div class='input'><span class='fu'>smooths</span>(<span class='no'>b</span>, <span class='kw'>predictor</span> <span class='kw'>=</span> <span class='fu'>predictors</span>(<span class='no'>b</span>)[<span class='fl'>1</span>])</div><div class='output co'>#&gt; [1] "p"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

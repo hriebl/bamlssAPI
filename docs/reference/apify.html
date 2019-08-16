@@ -141,9 +141,40 @@ model terms. Defaults to <code>"iwlsC_gp"</code>. See <code><a href='https://www
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>10</span>)
-<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'>bamlss</span>(<span class='no'>y</span> ~ <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span class='error'>Error in bamlss(y ~ 1): could not find function "bamlss"</span></div><div class='input'><span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'>apify</span>(<span class='no'>b</span>)</div><div class='output co'>#&gt; <span class='error'>Error in bamlss.engine.setup(model$x, propose = propose): could not find function "bamlss.engine.setup"</span></div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>bamlss</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: coda</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: colorspace</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: mgcv</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: nlme</span></div><div class='output co'>#&gt; <span class='message'>This is mgcv 1.8-28. For overview type 'help("mgcv-package")'.</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: ‘bamlss’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:mgcv’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    smooth.construct</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:bamlssAPI’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    parameters</span></div><div class='input'><span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>10</span>)
+<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/bamlss/topics/bamlss'>bamlss</a></span>(<span class='no'>y</span> ~ <span class='fl'>1</span>)</div><div class='output co'>#&gt; AICc  35.2644 logPost -30.4284 logLik -14.7750 edf 2.0000 eps 0.8993 iteration   1
+#&gt; AICc  35.2642 logPost -30.4283 logLik -14.7750 edf 2.0000 eps 0.0228 iteration   2
+#&gt; AICc  35.2642 logPost -30.4283 logLik -14.7750 edf 2.0000 eps 0.0000 iteration   3
+#&gt; AICc  35.2642 logPost -30.4283 logLik -14.7750 edf 2.0000 eps 0.0000 iteration   3
+#&gt; elapsed time:  0.01sec
+#&gt; Starting the sampler...
+#&gt; 
+#&gt; |                    |   0%  1.07sec
+#&gt; |*                   |   5%  1.44sec  0.08sec
+#&gt; |**                  |  10%  1.49sec  0.17sec
+#&gt; |***                 |  15%  1.37sec  0.24sec
+#&gt; |****                |  20%  1.23sec  0.31sec
+#&gt; |*****               |  25%  1.08sec  0.36sec
+#&gt; |******              |  30%  0.99sec  0.43sec
+#&gt; |*******             |  35%  0.97sec  0.52sec
+#&gt; |********            |  40%  0.87sec  0.58sec
+#&gt; |*********           |  45%  0.78sec  0.64sec
+#&gt; |**********          |  50%  0.69sec  0.69sec
+#&gt; |***********         |  55%  0.61sec  0.75sec
+#&gt; |************        |  60%  0.53sec  0.80sec
+#&gt; |*************       |  65%  0.46sec  0.86sec
+#&gt; |**************      |  70%  0.39sec  0.91sec
+#&gt; |***************     |  75%  0.32sec  0.97sec
+#&gt; |****************    |  80%  0.26sec  1.04sec
+#&gt; |*****************   |  85%  0.19sec  1.09sec
+#&gt; |******************  |  90%  0.13sec  1.15sec
+#&gt; |******************* |  95%  0.06sec  1.22sec
+#&gt; |********************| 100%  0.00sec  1.30sec</div><div class='input'><span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'>apify</span>(<span class='no'>b</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -516,7 +516,7 @@ grad_logprior <- function(model, predictor, smooth) {
     tmp <- tmp + sum(beta * (S %*% beta)) / (2 * tau2[i]^2)
     tmp <- tmp - (smt$a + 1) / tau2[i] + smt$b / tau2[i]^2
 
-    gt[i] <- gt
+    gt[i] <- tmp
   }
 
   grad <- c(gb, gt)

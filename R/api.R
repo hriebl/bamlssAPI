@@ -510,7 +510,7 @@ grad_logprior <- function(model, predictor, smooth) {
       S <- S(c(beta, tau2, smt$fixed.hyper))
     }
 
-    gb <- gb - S %*% beta / tau2[i]
+    gb <- gb - S %*% (beta / tau2[i])
 
     tmp <- -smt$rank[i] / (2 * tau2[i])
     tmp <- tmp + sum(beta * (S %*% beta)) / (2 * tau2[i]^2)
@@ -553,9 +553,8 @@ hess_loglik <- function(model, predictor, smooth) {
     X <- X[smt$binning$match.index, , drop = FALSE]
   }
 
-  XX <- crossprod(X)
-  hess <- lapply(hess, function(hess) hess * XX)
-  hess <- Reduce("+", hess)
+  # this is the same as t(X) %*% diag(hess) %*% X, but much faster
+  hess <- crossprod(X * hess, X)
 
   return(hess)
 }
@@ -564,7 +563,10 @@ hess_loglik <- function(model, predictor, smooth) {
 
 hess_logprior <- function(model, predictor, smooth) {
   smt <- smt_obj(model, predictor, smooth)
+
+  beta <- parameters(model, predictor, smooth, type = "b")
   tau2 <- parameters(model, predictor, smooth, type = "tau2")
+
   hess <- 0
 
   for (i in seq_along(tau2)) {

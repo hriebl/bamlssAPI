@@ -3,8 +3,9 @@ Title: A Developer-Friendly API for the bamlss Package
 Version: 0.0.0.9000
 Authors@R: as.person("Hannes Riebl <hriebl@uni-goettingen.de> [aut, cre]")
 Description: A convenient API which simplifies the implementation of new
-    samplers for bamlss models. bamlss is a package for working with Bayesian
-    distributional regression models (also known as GAMLSS).
+    samplers for bamlss models. This package is based on the bamlss package
+    for estimating Bayesian distributional regression models, also known as
+    generalized additive models for location, scale, and shape (GAMLSS).
 Depends: R (>= 3.2.3)
 Imports: bamlss (>= 1.0-2)
 Suggests: testthat (>= 2.1.0), knitr, rmarkdown

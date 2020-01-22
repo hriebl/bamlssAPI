@@ -8,21 +8,25 @@
 
 <title>Enable API for a bamlss model — apify • bamlssAPI</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,11 +34,12 @@
 
 
 
-<meta property="og:title" content="Enable API for a bamlss model — apify" />
 
+<meta property="og:title" content="Enable API for a bamlss model — apify" />
 <meta property="og:description" content="This function enables the API for the given bamlss model. Afterwards, you
 can use the functions from the bamlssAPI package with the model." />
 <meta name="twitter:card" content="summary" />
+
 
 
 
@@ -46,6 +51,7 @@ can use the functions from the bamlssAPI package with the model." />
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -72,7 +78,7 @@ can use the functions from the bamlssAPI package with the model." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -92,7 +98,6 @@ can use the functions from the bamlssAPI package with the model." />
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
@@ -102,6 +107,7 @@ can use the functions from the bamlssAPI package with the model." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -113,81 +119,77 @@ can use the functions from the bamlssAPI package with the model." />
     </div>
 
     <div class="ref-description">
-    
     <p>This function enables the API for the given bamlss model. Afterwards, you
 can use the functions from the bamlssAPI package with the model.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>apify</span>(<span class='no'>model</span>, <span class='kw'>propose</span> <span class='kw'>=</span> <span class='st'>"iwlsC_gp"</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>model</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/bamlss/topics/bamlss'>bamlss::bamlss</a></code> or <code><a href='https://www.rdocumentation.org/packages/bamlss/topics/bamlss.frame'>bamlss::bamlss.frame</a></code> object.</p></td>
+      <td><p>A <code><a href='https://rdrr.io/pkg/bamlss/man/bamlss.html'>bamlss::bamlss</a></code> or <code><a href='https://rdrr.io/pkg/bamlss/man/bamlss.frame.html'>bamlss::bamlss.frame</a></code> object.</p></td>
     </tr>
     <tr>
       <th>propose</th>
       <td><p>A string containing the name of a bamlss propose function for
-model terms. Defaults to <code>"iwlsC_gp"</code>. See <code><a href='https://www.rdocumentation.org/packages/bamlss/topics/GMCMC'>bamlss::GMCMC()</a></code>.</p></td>
+model terms. Defaults to <code>"iwlsC_gp"</code>. See <code><a href='https://rdrr.io/pkg/bamlss/man/GMCMC.html'>bamlss::GMCMC()</a></code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The API-enabled model.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>bamlss</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: coda</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: colorspace</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: mgcv</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: nlme</span></div><div class='output co'>#&gt; <span class='message'>This is mgcv 1.8-28. For overview type 'help("mgcv-package")'.</span></div><div class='output co'>#&gt; <span class='message'></span>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>bamlss</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: coda</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: colorspace</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: mgcv</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: nlme</span></div><div class='output co'>#&gt; <span class='message'>This is mgcv 1.8-31. For overview type 'help("mgcv-package")'.</span></div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: ‘bamlss’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:mgcv’:</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    smooth.construct</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:bamlssAPI’:</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    parameters</span></div><div class='input'><span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='fl'>10</span>)
-<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/bamlss/topics/bamlss'>bamlss</a></span>(<span class='no'>y</span> ~ <span class='fl'>1</span>)</div><div class='output co'>#&gt; AICc  35.2644 logPost -30.4284 logLik -14.7750 edf 2.0000 eps 0.8993 iteration   1
+#&gt; <span class='message'>    parameters</span></div><div class='input'><span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>10</span>)
+<span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bamlss/man/bamlss.html'>bamlss</a></span>(<span class='no'>y</span> ~ <span class='fl'>1</span>)</div><div class='output co'>#&gt; AICc  35.2644 logPost -30.4284 logLik -14.7750 edf 2.0000 eps 0.8993 iteration   1
 #&gt; AICc  35.2642 logPost -30.4283 logLik -14.7750 edf 2.0000 eps 0.0228 iteration   2
 #&gt; AICc  35.2642 logPost -30.4283 logLik -14.7750 edf 2.0000 eps 0.0000 iteration   3
 #&gt; AICc  35.2642 logPost -30.4283 logLik -14.7750 edf 2.0000 eps 0.0000 iteration   3
 #&gt; elapsed time:  0.01sec
 #&gt; Starting the sampler...
 #&gt; 
-#&gt; |                    |   0%  1.07sec
-#&gt; |*                   |   5%  1.44sec  0.08sec
-#&gt; |**                  |  10%  1.49sec  0.17sec
-#&gt; |***                 |  15%  1.37sec  0.24sec
-#&gt; |****                |  20%  1.23sec  0.31sec
-#&gt; |*****               |  25%  1.08sec  0.36sec
-#&gt; |******              |  30%  0.99sec  0.43sec
-#&gt; |*******             |  35%  0.97sec  0.52sec
-#&gt; |********            |  40%  0.87sec  0.58sec
-#&gt; |*********           |  45%  0.78sec  0.64sec
-#&gt; |**********          |  50%  0.69sec  0.69sec
-#&gt; |***********         |  55%  0.61sec  0.75sec
-#&gt; |************        |  60%  0.53sec  0.80sec
-#&gt; |*************       |  65%  0.46sec  0.86sec
-#&gt; |**************      |  70%  0.39sec  0.91sec
-#&gt; |***************     |  75%  0.32sec  0.97sec
-#&gt; |****************    |  80%  0.26sec  1.04sec
-#&gt; |*****************   |  85%  0.19sec  1.09sec
-#&gt; |******************  |  90%  0.13sec  1.15sec
-#&gt; |******************* |  95%  0.06sec  1.22sec
-#&gt; |********************| 100%  0.00sec  1.30sec</div><div class='input'><span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'>apify</span>(<span class='no'>b</span>)</div></pre>
+#&gt; |                    |   0%  2.26sec
+#&gt; |*                   |   5%  1.10sec  0.06sec
+#&gt; |**                  |  10%  1.42sec  0.16sec
+#&gt; |***                 |  15%  2.06sec  0.36sec
+#&gt; |****                |  20%  1.69sec  0.42sec
+#&gt; |*****               |  25%  1.45sec  0.48sec
+#&gt; |******              |  30%  1.27sec  0.54sec
+#&gt; |*******             |  35%  1.13sec  0.61sec
+#&gt; |********            |  40%  1.01sec  0.68sec
+#&gt; |*********           |  45%  0.90sec  0.74sec
+#&gt; |**********          |  50%  0.79sec  0.79sec
+#&gt; |***********         |  55%  0.69sec  0.85sec
+#&gt; |************        |  60%  0.60sec  0.90sec
+#&gt; |*************       |  65%  0.51sec  0.95sec
+#&gt; |**************      |  70%  0.43sec  1.01sec
+#&gt; |***************     |  75%  0.35sec  1.06sec
+#&gt; |****************    |  80%  0.28sec  1.11sec
+#&gt; |*****************   |  85%  0.21sec  1.16sec
+#&gt; |******************  |  90%  0.14sec  1.22sec
+#&gt; |******************* |  95%  0.07sec  1.27sec
+#&gt; |********************| 100%  0.00sec  1.33sec</div><div class='input'><span class='no'>b</span> <span class='kw'>&lt;-</span> <span class='fu'>apify</span>(<span class='no'>b</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -195,13 +197,16 @@ model terms. Defaults to <code>"iwlsC_gp"</code>. See <code><a href='https://www
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

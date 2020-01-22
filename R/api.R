@@ -127,6 +127,10 @@ smooths <- function(model, predictor) {
 parameters <- function(model, predictor, smooth, names = NULL, type = NULL) {
   par <- par_obj(model, predictor, smooth)
 
+  if (smooth == "p" && !is.null(type) && type == "b") {
+    type <- NULL
+  }
+
   if (!is.null(names)) {
     par <- par[names[names %in% base::names(par)]]
   } else if (!is.null(type)) {

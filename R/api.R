@@ -18,6 +18,10 @@
 #' @export
 
 apify <- function(model, propose = "iwlsC_gp") {
+  if (inherits(model, "apified.bamlss")) {
+    return(model)
+  }
+
   model$x <- bamlss::bamlss.engine.setup(model$x, propose = propose)
 
   if ("parameters" %in% names(model)) {
